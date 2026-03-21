@@ -2,8 +2,7 @@ services:
   - type: web
     name: personal-finance-dashboard
     runtime: python
-    rootDir: .
-    buildCommand: "./build.sh"
+    buildCommand: "chmod +x build.sh && ./build.sh"
     startCommand: "cd backend && gunicorn finance_api.wsgi:application --bind 0.0.0.0:$PORT --workers 2"
     envVars:
       - key: DJANGO_SECRET_KEY

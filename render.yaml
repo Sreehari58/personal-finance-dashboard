@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: personal-finance-dashboard
+    runtime: python
+    rootDir: .
+    buildCommand: "./build.sh"
+    startCommand: "cd backend && gunicorn finance_api.wsgi:application --bind 0.0.0.0:$PORT --workers 2"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: NODE_VERSION
+        value: "22.0.0"
+      - key: ANTHROPIC_API_KEY
+        sync: false   # Set manually in Render dashboard

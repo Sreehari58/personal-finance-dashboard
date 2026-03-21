@@ -11,6 +11,10 @@ env/
 # Django
 db.sqlite3
 *.log
+backend/staticfiles/*
+!backend/staticfiles/.gitkeep
+backend/static/react/*
+!backend/static/react/.gitkeep
 
 # React
 node_modules/

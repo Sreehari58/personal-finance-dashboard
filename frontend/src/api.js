@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
+// In production Django serves both frontend and API from the same origin.
+// In dev, CRA's proxy forwards /api/* to localhost:8000.
+const BASE = process.env.REACT_APP_API_URL || "/api";
 
 export const api = axios.create({ baseURL: BASE });
 
